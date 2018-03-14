@@ -32,6 +32,10 @@ Criteria
 - Zet je code op Github
 - Schrijf een Readme met een beschrijving van de problemen die je hebt gevonden, hoe je die hebt opgelost, of hoe je dit zou oplossen (met todo’s) als je genoeg tijd en budget zou hebben 
 
+
+[Gereviewde website](https://cascuna.github.io/browser-technologies/opdracht1/app/#objecten_catalogus).  
+**let op** [Ecmascript modules moeten aan staan!](https://jakearchibald.com/2017/es-modules-in-browsers/)
+> Alle tests zijn uitgevoerd in Firefox Developer edition
  ## 1. Zonder muis & trackpad
   De website werkt redelijk met alleen tab & pijltjes toetsen, alleen werkt de 'go back' knop niet. Dit zou een makkelijke oplossing moeten zijn. Een go-to content knop voor de content is niet echt nodig.  
  Verder zijn er geen persoonlijke :hover states toegevoegd, wat de navigatie wel duidelijk zou kunnen maken, maar dit is opzich geen probleem aangezien de standaard hover ook niet geblokeert is
@@ -42,12 +46,12 @@ Criteria
  Tot mijn verassing werkt de website best aardig, soms kan het wel een seconde duren om de homepagina te laden maar dit is ook voornamenlijk vanwege de niet zo snelle rijksmuseum API. 
  De afbeeldingen laden ook wat langzamer om deze reden.  
  Het nadeel is wel dat de afbeeldingen de primaire content van mijn website zijn, en het laden hiervan dus bepaalt hoelang het duurt voordat er content te zien is.   
- Wellicht zou het netjes zijn om ipv een api call van 100 afbeeldingen iets van 30 te doen voor mobiel,zodat de call onder 1 seconden kan komen. (opgelost in Commit https://github.com/Cascuna/browser-technologies/commit/040e77249f9d2acf2279e3e8ae06175d40827fa9)
+ Wellicht zou het netjes zijn om ipv een api call van 100 afbeeldingen iets van 30 te doen voor mobiel,zodat de call onder 1 seconden kan komen. opgelost in Commit [04e772](https://github.com/Cascuna/browser-technologies/commit/040e77249f9d2acf2279e3e8ae06175d40827fa9)   
  Ook zou het gebruik van placeholder afbeeldingen kunnen helpen in de listviews aangezien een aantal afbeeldingen erg lang moeten laden (+2 seconden) (Opgelost met alts ipv images)
  
  ## 3. Images
  Omdat mijn website veel rust op afbeeldingen, is de website vrij leeg zonder afbeeldingen.
- Ook merk ik dat er geen alt's voor de afbeeldingen zijn, wat best programmatisch geset zou kunnen worden.(Opgelost in commit https://github.com/Cascuna/browser-technologies/commit/251b2b31972ceb903edb3a425e7aacb3278c6bfb)  
+ Ook merk ik dat er geen alt's voor de afbeeldingen zijn, wat best programmatisch geset zou kunnen worden.Opgelost in Commit [251b2b](https://github.com/Cascuna/browser-technologies/commit/251b2b31972ceb903edb3a425e7aacb3278c6bfb)    
  Ook lijkt me het converteren van de afbeeldingen die png naar jpg geen slecht idee, zodat ik zeker weet dat de afbeeldingen niet meer data innemen dan nodig. (Voor in de todo)
  Ook zou compressie op een server van de afbeeldingen die worden geladen een optie zijn, alhoewel dit niet heel realistisch is voor de minor.
 
@@ -67,7 +71,7 @@ Dit eerste kan zeker worden opgelost, bijvorbeeld door een fallback statische na
 Aan de api valt niet veel te doen. Misschien zou een idee zijn om een standaard lijst van afbeeldingen op te slaan en deze te laten zienals er geen javascript is, maar dan heb ik alsnog weinig data aangezien deze data uit JSON komt.
 
 ## 7. Local storage 
-Na het uitzetten van de local storage kan je geen data meer ophalen, omdat er een error wordt gegooit dat localstorage niet bestaat (opgelost in Commit https://github.com/Cascuna/browser-technologies/commit/5b0078ae860895c8bd162428b5a09dfe0608c0bd)
+Na het uitzetten van de local storage kan je geen data meer ophalen, omdat er een error wordt gegooit dat localstorage niet bestaat. Opgelost in Commit [5b0078a](https://github.com/Cascuna/browser-technologies/commit/5b0078ae860895c8bd162428b5a09dfe0608c0bd)   
 Na deze fix kan localstorageuitzeten prima, alleen zullen de second vists wat langer duren, omdat dit versneld wordt door de local storage. In de idealen wereld zouden de bestanden ook gecached moeten worden op een server om ook de eerste visit van nieuwe gebruikers te verbeteren.  
 
 ## 8. Cookies 
