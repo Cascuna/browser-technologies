@@ -42,8 +42,8 @@ Criteria
  Tot mijn verassing werkt de website best aardig, soms kan het wel een seconde duren om de homepagina te laden maar dit is ook voornamenlijk vanwege de niet zo snelle rijksmuseum API. 
  De afbeeldingen laden ook wat langzamer om deze reden.  
  Het nadeel is wel dat de afbeeldingen de primaire content van mijn website zijn, en het laden hiervan dus bepaalt hoelang het duurt voordat er content te zien is.   
- Wellicht zou het netjes zijn om ipv een api call van 100 afbeeldingen iets van 30 te doen voor mobiel,zodat de call onder 1 seconden kan komen.
- Ook zou het gebruik van placeholder afbeeldingen kunnen helpen in de listviews aangezien een aantal afbeeldingen erg lang moeten laden (+2 seconden)
+ Wellicht zou het netjes zijn om ipv een api call van 100 afbeeldingen iets van 30 te doen voor mobiel,zodat de call onder 1 seconden kan komen. (opgelost in Commit https://github.com/Cascuna/browser-technologies/commit/040e77249f9d2acf2279e3e8ae06175d40827fa9)
+ Ook zou het gebruik van placeholder afbeeldingen kunnen helpen in de listviews aangezien een aantal afbeeldingen erg lang moeten laden (+2 seconden) (Opgelost met alts ipv images)
  
  ## 3. Images
  Omdat mijn website veel rust op afbeeldingen, is de website vrij leeg zonder afbeeldingen.
@@ -53,7 +53,7 @@ Criteria
 
  ## 4. Custom fonts
  De website gebruikt geen custom fonts.
- Misschien zou een 3rd party font wel leuk zijn (bijv van google), om het wat mooier te maken.
+ Misschien zou een 3rd party font wel leuk zijn (bijv van google), om het wat mooier te maken. (Voor later)
 
  ## 5. Kleur
  > Getest voor Protanopia & Deuteranopia
@@ -63,11 +63,12 @@ Criteria
 
 ## 6. Javascript
 Zonder javascript laad mijn website vrijwel niets, zelfs niet de navigatie. Dit komt omdat ik de navigatie aan de hand van de sections in de HTML geneer met javascript. Ook zie je geen content meer, omdat deze wordt opgehaald met een api dmv javascript.  
-Dit eerste kan zeker worden opgelost, bijvorbeeld door een fallback statische navigatie aant e maken.  
-Aan de api valt niet veel te doen. Misschien zou een idee zijn om een standaard lijst van afbeeldingen op te slaan en deze te laten zienals er geen javascript is, maar dan heb ik alsnog weinig data aangezien deze data uit JSON komt. 
+Dit eerste kan zeker worden opgelost, bijvorbeeld door een fallback statische navigatie aan te maken. (Niet nodig op het moment, de navigatie is bewust zo gemaakt ) 
+Aan de api valt niet veel te doen. Misschien zou een idee zijn om een standaard lijst van afbeeldingen op te slaan en deze te laten zienals er geen javascript is, maar dan heb ik alsnog weinig data aangezien deze data uit JSON komt.
 
 ## 7. Local storage 
-
+Na het uitzetten van de local storage kan je geen data meer ophalen, omdat er een error wordt gegooit dat localstorage niet bestaat (opgelost in xxx)
+Het niet gebruik van local storage kan prima, alleen zullen de second vists wat langer duren, omdat dit gebruikt wordt als een cache. In de idealen wereld zouden de bestanden ook gecached moeten worden op een server. 
 
 ## 8. Cookies 
-
+Ik heb geen cookies gebruikt

@@ -1,4 +1,4 @@
-export default class ApiCacheHandler {
+    export default class ApiCacheHandler {
     /* 
     Object verantwoordelijk voor alle interactie tussen een RequestObject & de LocalStorage
     */
@@ -11,6 +11,10 @@ export default class ApiCacheHandler {
     }
 
     writeToCache(key, value) {
+
+        if (localStorage === null) {
+            return false 
+        }
         let entryToCache = { value: value, timestamp: new Date().getTime() }
         localStorage.setItem(key, JSON.stringify(entryToCache))
         return JSON.parse(localStorage.getItem(key)).value
@@ -23,6 +27,9 @@ export default class ApiCacheHandler {
     }
 
     retrieveCachedItems(key) {
+        if (localStorage === null) {
+            return false 
+        }
         try {
             let object = JSON.parse(localStorage.getItem(key))
 
