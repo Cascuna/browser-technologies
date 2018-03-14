@@ -47,9 +47,9 @@ Criteria
  
  ## 3. Images
  Omdat mijn website veel rust op afbeeldingen, is de website vrij leeg zonder afbeeldingen.
- Ook merk ik dat er geen alt's voor de afbeeldingen zijn, wat best programmatisch geset zou kunnen worden.  
- Ook lijkt me het converteren van de afbeeldingen die png naar jpg geen slecht idee, zodat ik zeker weet dat de afbeeldingen niet meer data innemen dan nodig. 
- Ook zou compressie op eenserver van de afbeeldingen die worden geladen een optie zijn, alhoewel ditniet heel vat baar is.
+ Ook merk ik dat er geen alt's voor de afbeeldingen zijn, wat best programmatisch geset zou kunnen worden.(Opgelost in commit https://github.com/Cascuna/browser-technologies/commit/251b2b31972ceb903edb3a425e7aacb3278c6bfb)  
+ Ook lijkt me het converteren van de afbeeldingen die png naar jpg geen slecht idee, zodat ik zeker weet dat de afbeeldingen niet meer data innemen dan nodig. (Voor in de todo)
+ Ook zou compressie op een server van de afbeeldingen die worden geladen een optie zijn, alhoewel dit niet heel realistisch is voor de minor.
 
  ## 4. Custom fonts
  De website gebruikt geen custom fonts.

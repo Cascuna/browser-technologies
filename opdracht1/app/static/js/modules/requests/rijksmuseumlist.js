@@ -1,5 +1,5 @@
 import Request from './request.js';
-import { hookListener } from '../utils.js';
+import { hookListener, mobileCheck } from '../utils.js';
 export default class ArtListRequest extends Request {
     success(response) {
         let listview = document.getElementById("rijksmuseum-listview")
@@ -33,6 +33,7 @@ export default class ArtListRequest extends Request {
 
     fetchList(path) {
         this.apiCacheHandler.setCurrentKey('rijksmuseumlist')
-        this.send(path, 'ps=100')
+        let ps = mobileCheck() ? 30 : 100
+        this.send(path, 'ps=' + ps)
     }
 }
