@@ -67,8 +67,8 @@ Dit eerste kan zeker worden opgelost, bijvorbeeld door een fallback statische na
 Aan de api valt niet veel te doen. Misschien zou een idee zijn om een standaard lijst van afbeeldingen op te slaan en deze te laten zienals er geen javascript is, maar dan heb ik alsnog weinig data aangezien deze data uit JSON komt.
 
 ## 7. Local storage 
-Na het uitzetten van de local storage kan je geen data meer ophalen, omdat er een error wordt gegooit dat localstorage niet bestaat (opgelost in xxx)
-Het niet gebruik van local storage kan prima, alleen zullen de second vists wat langer duren, omdat dit gebruikt wordt als een cache. In de idealen wereld zouden de bestanden ook gecached moeten worden op een server. 
+Na het uitzetten van de local storage kan je geen data meer ophalen, omdat er een error wordt gegooit dat localstorage niet bestaat (opgelost in Commit https://github.com/Cascuna/browser-technologies/commit/5b0078ae860895c8bd162428b5a09dfe0608c0bd)
+Na deze fix kan localstorageuitzeten prima, alleen zullen de second vists wat langer duren, omdat dit versneld wordt door de local storage. In de idealen wereld zouden de bestanden ook gecached moeten worden op een server om ook de eerste visit van nieuwe gebruikers te verbeteren.  
 
 ## 8. Cookies 
 Ik heb geen cookies gebruikt
