@@ -76,3 +76,4 @@ Na deze fix kan localstorageuitzeten prima, alleen zullen de second vists wat la
 
 ## 8. Cookies 
 Ik heb geen cookies gebruikt
+s
