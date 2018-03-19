@@ -1,0 +1,62 @@
+html {
+    padding: 1em;
+}
+
+
+.linktext {
+    display:none;
+}
+
+
+
+.hidden {
+    opacity: 0;
+    /* height: 1px; */
+    
+    transform: translateY(-100%);
+}
+
+.hidden * {
+    opacity: 0;
+    height: 1px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+ul {
+    width: 100%;
+}
+li {
+    background-color: orange;
+    display: block;
+    width: 100%;
+    border-bottom: 1px;
+    line-height: 25px; line-height: 1.5em;
+    text-align: center;
+}
+
+li > a {
+    text-decoration: none;
+    color: black;
+}
+
+li:hover {
+    background-color: whitesmoke;
+}
+
+span {
+    width: 16px; width: 1em; 
+    background-color: black;
+    border-radius: .5px;
+    display: block;
+    height: 3px;
+    margin: 2px;
+}
+
+#navigation {
+
+    transition: all .3s ease-in;
+}
