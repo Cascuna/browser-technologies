@@ -47,7 +47,7 @@ li {
     border-bottom: 1px;
     line-height: 25px; line-height: 1.5em;
     text-align: center;
-    /* margin: 15px 0 15px 0; */
+    padding: 15px 0 15px 0;
 }
 
 li > a {
@@ -84,6 +84,7 @@ span {
 
     .hidden {
         position: absolute;
+        /* transform: scaleY(0); */
         top: -900px;
         left: 0;
         height: 0;
