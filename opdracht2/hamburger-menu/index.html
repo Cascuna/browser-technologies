@@ -9,16 +9,16 @@
 </head>
 <body>
     <div id='hamburgermenu'>
-        <div class='hamburgericon'>
-            <a href='#navigation' id='burgerlink'>
-            <div class='linktext'>Klik hier om hem te menu te zien</div>
-                <span></span>
-                <span></span>
-                <span></span>
+        <a href='#navigation' id='burgerlink'>
+            <div class='linktext'>Menu</div>
+                <div class='hamburgericon'>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </a>
-        </div>
     </div>
-    <section>
+    <section id='text'>
         Donec in lacus id nulla commodo elementum. Aliquam mollis euismod facilisis. Morbi pellentesque, ante quis sodales pulvinar, ligula elit imperdiet leo, in tincidunt felis velit dignissim metus. Vestibulum eleifend dapibus tortor non hendrerit. Curabitur dolor nisl, accumsan eget mattis at, finibus nec libero. Nam molestie ipsum at ante volutpat, eu condimentum mi vestibulum. Nam justo urna, pretium eget ipsum ut, viverra pulvinar sapien. Phasellus efficitur, mi sit amet convallis porta, mauris massa pharetra felis, vel porta nibh urna sit amet justo. Vestibulum sit amet tristique mauris. Donec non congue turpis, sit amet viverra tortor. Nulla enim augue, placerat dignissim libero mattis, suscipit suscipit libero. Morbi at sagittis quam, nec consequat mi. Maecenas nec mauris lacus. Nullam venenatis turpis fringilla, malesuada libero vitae, finibus felis. Praesent convallis elit varius quam lobortis tincidunt vitae eget ante.
 
         Proin dictum, ipsum at maximus mattis, augue ligula placerat nibh, et mollis felis risus ut ex. Praesent id arcu ut arcu feugiat aliquet sit amet in leo. Vivamus nisi libero, semper non nisl in, auctor convallis risus. Curabitur vel pretium odio. Sed elementum nulla neque, eget malesuada magna semper sed. Integer tincidunt nulla tincidunt nulla tristique, quis gravida ipsum varius. Cras dui libero, sodales nec libero non, lacinia bibendum nunc. Mauris nec consectetur neque, vel tincidunt enim. Aenean commodo dui nec massa gravida, et volutpat dui aliquam.
@@ -50,8 +50,29 @@
         burgerlink.addEventListener("click", function() 
         {
             var nav = document.getElementById('navigation')
-            nav.classList.remove('hidden')
+            // Fallback for classlist 
+            if(!nav.classList){
+                console.log('Browser doesnt have classlist')
+                if (nav.className === 'hidden') {
+                    nav.className = 'test';
+                }
+                else {
+                    nav.className = 'hidden'
+                }
+                 
+            }
+            nav.classList.toggle('test')
+            nav.classList.toggle('hidden')
+            
+            var height = nav.clientHeight
+            var section = document.getElementById('text')
+            console.log(height)
+            if(height > 60){section.style.margin = height + 'px 0 0 0'}
+            else{section.style.margin = '2em 0 0 0'}
+
         })
+
+
 
     </script>
 </body>
