@@ -18,7 +18,7 @@ This is the core functionality of the assignment; when you click on the link, yo
 Screenshots are from tests on `internet explorer 11`, using the emulator to simulate `internet explorer 5`. I'll be making the assumption that if it works on this, it will work on basically anything.
 
 ### Stage 1
-![image](./img/baseline.png)
+![image](/img/baseline.png)
 
 ### Stage 2 (link has been clicked)
 ![image](img/baseline-hamburger.png)
