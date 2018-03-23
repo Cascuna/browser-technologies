@@ -18,10 +18,10 @@ This is the core functionality of the assignment; when you click on the link, yo
 Screenshots are from tests on `internet explorer 11`, using the emulator to simulate `internet explorer 5`. I'll be making the assumption that if it works on this, it will work on basically anything.
 
 ### Stage 1
-![image](/opdracht2/hamburger-menu/img/baseline.png)
+![image](/opdracht2/hamburger-menu/img/baseline.PNG)
 
 ### Stage 2 (link has been clicked)
-![image](img/baseline-hamburger.png)
+![image](img/baseline-hamburger.PNG)
 
 Since the core functionality of a hamburger menu is to take the user to the navigation, this seemed like a suitable solution for users without css or javascript.
 
