@@ -1,4 +1,4 @@
-<DOCTYPE <!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,14 +6,44 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
 </head>
 <body>
-    <a href='fallback.html'>Druk hier op de link om naar demodal te gaan</a>
-    <dialog> Erg vriendelijk </dialog>
-
+    <a href='dialog.html' id='modallink'>Open de Modal</a>
+    <dialog id='modal' class='fallbackmodal' open ></dialog>
+  
 <script type='text/javascript'>
-
+    var modal = document.getElementById("modal")
+    var link = document.getElementById("modallink")
+    var setText = function(response){
+        modal.innerHTML = response
+    }
+    if(typeof(fetch) !== undefined) {
+        if (window.XMLHttpRequest || bActiveX) { // IE7+, FF and Chrome
+        var req = XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        req.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            // Typical action to be performed when the document is ready:
+            setText(req.responseText)
+            }
+        };
+        req.open("GET", "./dialog.html", true);
+        req.send();
+        }
+    }
+    else{
+        fetch("./dialog.html")
+        .then((result) => {
+            return result.text()})
+        .then((result) => {
+            setText(result)
+        })
+    }
+    link.onclick = (event) => {
+        console.log(event)
+        modal.classList.toggle('fallbackmodal')
+        event.preventDefault()
+    } 
+    
 </script>
 </body>
 </html>
