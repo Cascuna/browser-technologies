@@ -1,5 +1,7 @@
 # Link & Overlay Progressive Enhancement
 
+[`Link to demo`](https://cascuna.github.io/browser-technologies/opdracht2/link-and-overlay/) 
+
 ## preface
 This assignment aims to create a modal triggered by a link using the progressive enhacement principle;
 * The baseline
