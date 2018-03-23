@@ -1,5 +1,7 @@
 # Hamburger Menu Progressive Enhancement
 
+[`link to demo`](https://cascuna.github.io/browser-technologies/opdracht2/hamburger-menu/)
+
 ## preface
 This assignment aims to recreate the hamburger principle using the progressive enhacement principle;
 * The baseline
