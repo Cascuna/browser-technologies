@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
+ 
         html {
             padding: 1em;
             line-height: 1.4em;
@@ -15,12 +17,6 @@
             display:none;
         }
 
-        .test {
-            position: absolute;
-            top: 17px;
-            left: -16px
-            
-        }
 
         section {
             margin-left: auto;
@@ -75,18 +71,12 @@
             #hamburgermenu {
                 background-color: orange;
                 width: 100%;
-                position: absolute;
+
                 left: 0;
                 top: 0;
             }
 
-            .hidden {
-                position: absolute;
-                /* transform: scaleY(0); */
-                top: -900px;
-                left: 0;
-                height: 0;
-            }
+
 
         
         }
@@ -95,18 +85,6 @@
                 display: none;
             }
 
-            .hidden {
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
-            
-
-            #navigation {
-                position: absolute;
-                top: 0px;
-                left: -40px;
-            }
             ul {
                 display: flex;
                 justify-content: center;
@@ -124,7 +102,7 @@
 </head>
 <body>
     <div id='hamburgermenu'>
-        <a href='#navigation' id='burgerlink'>
+        <a href='#navigationul' id='burgerlink'>
             <div class='linktext'>Menu</div>
                 <div class='hamburgericon'>
                     <span></span>
@@ -134,24 +112,25 @@
             </a>
     </div>
     <section id='text'>
+        <p>Donec in lacus id nulla commodo elementum. Aliquam mollis euismod facilisis. Morbi pellentesque, ante quis sodales pulvinar, ligula elit imperdiet leo, in tincidunt felis velit dignissim metus. Vestibulum eleifend dapibus tortor non hendrerit. Curabitur dolor nisl, accumsan eget mattis at, finibus nec libero. Nam molestie ipsum at ante volutpat, eu condimentum mi vestibulum. Nam justo urna, pretium eget ipsum ut, viverra pulvinar sapien. Phasellus efficitur, mi sit amet convallis porta, mauris massa pharetra felis, vel porta nibh urna sit amet justo. Vestibulum sit amet tristique mauris. Donec non congue turpis, sit amet viverra tortor. Nulla enim augue, placerat dignissim libero mattis, suscipit suscipit libero. Morbi at sagittis quam, nec consequat mi. Maecenas nec mauris lacus. Nullam venenatis turpis fringilla, malesuada libero vitae, finibus felis. Praesent convallis elit varius quam lobortis tincidunt vitae eget ante.
+        </p>
+        <p>Proin dictum, ipsum at maximus mattis, augue ligula placerat nibh, et mollis felis risus ut ex. Praesent id arcu ut arcu feugiat aliquet sit amet in leo. Vivamus nisi libero, semper non nisl in, auctor convallis risus. Curabitur vel pretium odio. Sed elementum nulla neque, eget malesuada magna semper sed. Integer tincidunt nulla tincidunt nulla tristique, quis gravida ipsum varius. Cras dui libero, sodales nec libero non, lacinia bibendum nunc. Mauris nec consectetur neque, vel tincidunt enim. Aenean commodo dui nec massa gravida, et volutpat dui aliquam.
+        </p>
+        <p>Suspendisse id gravida lacus. Mauris bibendum odio ut fermentum ullamcorper. Donec ac erat at risus euismod lacinia eget consequat eros. Maecenas porttitor risus ac urna commodo, sit amet auctor risus rutrum. Vivamus vulputate non risus sed varius. Maecenas aliquet augue nisi, ut molestie ipsum tincidunt et. Fusce egestas vel arcu sed fringilla. Mauris volutpat condimentum felis, convallis gravida mi rutrum vitae. Sed ultrices eros et bibendum bibendum. Sed fermentum sagittis lobortis. Praesent nisi odio, blandit vitae rhoncus vitae, tempus eget ante. Phasellus iaculis leo ac vestibulum congue.
+        </p>
+        <p>Nam est enim, dignissim sed cursus eu, maximus quis justo. Aliquam porttitor diam nec tellus mollis, a bibendum quam scelerisque. Aliquam erat volutpat. Suspendisse elit urna, pharetra faucibus venenatis sit amet, vestibulum vel tellus. Etiam ornare urna vel risus rutrum tempus id eget metus. Proin eget sapien in lectus fermentum ornare. Proin ac erat ac nibh consectetur porta. Maecenas hendrerit ex ut vulputate luctus. Nullam quis ex rhoncus nulla placerat aliquet. Nulla vulputate libero at lectus lacinia, et pharetra magna auctor. 
         Donec in lacus id nulla commodo elementum. Aliquam mollis euismod facilisis. Morbi pellentesque, ante quis sodales pulvinar, ligula elit imperdiet leo, in tincidunt felis velit dignissim metus. Vestibulum eleifend dapibus tortor non hendrerit. Curabitur dolor nisl, accumsan eget mattis at, finibus nec libero. Nam molestie ipsum at ante volutpat, eu condimentum mi vestibulum. Nam justo urna, pretium eget ipsum ut, viverra pulvinar sapien. Phasellus efficitur, mi sit amet convallis porta, mauris massa pharetra felis, vel porta nibh urna sit amet justo. Vestibulum sit amet tristique mauris. Donec non congue turpis, sit amet viverra tortor. Nulla enim augue, placerat dignissim libero mattis, suscipit suscipit libero. Morbi at sagittis quam, nec consequat mi. Maecenas nec mauris lacus. Nullam venenatis turpis fringilla, malesuada libero vitae, finibus felis. Praesent convallis elit varius quam lobortis tincidunt vitae eget ante.
-
-        Proin dictum, ipsum at maximus mattis, augue ligula placerat nibh, et mollis felis risus ut ex. Praesent id arcu ut arcu feugiat aliquet sit amet in leo. Vivamus nisi libero, semper non nisl in, auctor convallis risus. Curabitur vel pretium odio. Sed elementum nulla neque, eget malesuada magna semper sed. Integer tincidunt nulla tincidunt nulla tristique, quis gravida ipsum varius. Cras dui libero, sodales nec libero non, lacinia bibendum nunc. Mauris nec consectetur neque, vel tincidunt enim. Aenean commodo dui nec massa gravida, et volutpat dui aliquam.
-        
-        Suspendisse id gravida lacus. Mauris bibendum odio ut fermentum ullamcorper. Donec ac erat at risus euismod lacinia eget consequat eros. Maecenas porttitor risus ac urna commodo, sit amet auctor risus rutrum. Vivamus vulputate non risus sed varius. Maecenas aliquet augue nisi, ut molestie ipsum tincidunt et. Fusce egestas vel arcu sed fringilla. Mauris volutpat condimentum felis, convallis gravida mi rutrum vitae. Sed ultrices eros et bibendum bibendum. Sed fermentum sagittis lobortis. Praesent nisi odio, blandit vitae rhoncus vitae, tempus eget ante. Phasellus iaculis leo ac vestibulum congue.
-        
-        Nam est enim, dignissim sed cursus eu, maximus quis justo. Aliquam porttitor diam nec tellus mollis, a bibendum quam scelerisque. Aliquam erat volutpat. Suspendisse elit urna, pharetra faucibus venenatis sit amet, vestibulum vel tellus. Etiam ornare urna vel risus rutrum tempus id eget metus. Proin eget sapien in lectus fermentum ornare. Proin ac erat ac nibh consectetur porta. Maecenas hendrerit ex ut vulputate luctus. Nullam quis ex rhoncus nulla placerat aliquet. Nulla vulputate libero at lectus lacinia, et pharetra magna auctor. 
-        Donec in lacus id nulla commodo elementum. Aliquam mollis euismod facilisis. Morbi pellentesque, ante quis sodales pulvinar, ligula elit imperdiet leo, in tincidunt felis velit dignissim metus. Vestibulum eleifend dapibus tortor non hendrerit. Curabitur dolor nisl, accumsan eget mattis at, finibus nec libero. Nam molestie ipsum at ante volutpat, eu condimentum mi vestibulum. Nam justo urna, pretium eget ipsum ut, viverra pulvinar sapien. Phasellus efficitur, mi sit amet convallis porta, mauris massa pharetra felis, vel porta nibh urna sit amet justo. Vestibulum sit amet tristique mauris. Donec non congue turpis, sit amet viverra tortor. Nulla enim augue, placerat dignissim libero mattis, suscipit suscipit libero. Morbi at sagittis quam, nec consequat mi. Maecenas nec mauris lacus. Nullam venenatis turpis fringilla, malesuada libero vitae, finibus felis. Praesent convallis elit varius quam lobortis tincidunt vitae eget ante.
-
-        Proin dictum, ipsum at maximus mattis, augue ligula placerat nibh, et mollis felis risus ut ex. Praesent id arcu ut arcu feugiat aliquet sit amet in leo. Vivamus nisi libero, semper non nisl in, auctor convallis risus. Curabitur vel pretium odio. Sed elementum nulla neque, eget malesuada magna semper sed. Integer tincidunt nulla tincidunt nulla tristique, quis gravida ipsum varius. Cras dui libero, sodales nec libero non, lacinia bibendum nunc. Mauris nec consectetur neque, vel tincidunt enim. Aenean commodo dui nec massa gravida, et volutpat dui aliquam.
-        
-        Suspendisse id gravida lacus. Mauris bibendum odio ut fermentum ullamcorper. Donec ac erat at risus euismod lacinia eget consequat eros. Maecenas porttitor risus ac urna commodo, sit amet auctor risus rutrum. Vivamus vulputate non risus sed varius. Maecenas aliquet augue nisi, ut molestie ipsum tincidunt et. Fusce egestas vel arcu sed fringilla. Mauris volutpat condimentum felis, convallis gravida mi rutrum vitae. Sed ultrices eros et bibendum bibendum. Sed fermentum sagittis lobortis. Praesent nisi odio, blandit vitae rhoncus vitae, tempus eget ante. Phasellus iaculis leo ac vestibulum congue.
-        
-        Nam est enim, dignissim sed cursus eu, maximus quis justo. Aliquam porttitor diam nec tellus mollis, a bibendum quam scelerisque. Aliquam erat volutpat. Suspendisse elit urna, pharetra faucibus venenatis sit amet, vestibulum vel tellus. Etiam ornare urna vel risus rutrum tempus id eget metus. Proin eget sapien in lectus fermentum ornare. Proin ac erat ac nibh consectetur porta. Maecenas hendrerit ex ut vulputate luctus. Nullam quis ex rhoncus nulla placerat aliquet. Nulla vulputate libero at lectus lacinia, et pharetra magna auctor. 
+        </p>
+        <p>Proin dictum, ipsum at maximus mattis, augue ligula placerat nibh, et mollis felis risus ut ex. Praesent id arcu ut arcu feugiat aliquet sit amet in leo. Vivamus nisi libero, semper non nisl in, auctor convallis risus. Curabitur vel pretium odio. Sed elementum nulla neque, eget malesuada magna semper sed. Integer tincidunt nulla tincidunt nulla tristique, quis gravida ipsum varius. Cras dui libero, sodales nec libero non, lacinia bibendum nunc. Mauris nec consectetur neque, vel tincidunt enim. Aenean commodo dui nec massa gravida, et volutpat dui aliquam.
+        </p>
+        <p>Suspendisse id gravida lacus. Mauris bibendum odio ut fermentum ullamcorper. Donec ac erat at risus euismod lacinia eget consequat eros. Maecenas porttitor risus ac urna commodo, sit amet auctor risus rutrum. Vivamus vulputate non risus sed varius. Maecenas aliquet augue nisi, ut molestie ipsum tincidunt et. Fusce egestas vel arcu sed fringilla. Mauris volutpat condimentum felis, convallis gravida mi rutrum vitae. Sed ultrices eros et bibendum bibendum. Sed fermentum sagittis lobortis. Praesent nisi odio, blandit vitae rhoncus vitae, tempus eget ante. Phasellus iaculis leo ac vestibulum congue.
+        </p>
+        <p>Nam est enim, dignissim sed cursus eu, maximus quis justo. Aliquam porttitor diam nec tellus mollis, a bibendum quam scelerisque. Aliquam erat volutpat. Suspendisse elit urna, pharetra faucibus venenatis sit amet, vestibulum vel tellus. Etiam ornare urna vel risus rutrum tempus id eget metus. Proin eget sapien in lectus fermentum ornare. Proin ac erat ac nibh consectetur porta. Maecenas hendrerit ex ut vulputate luctus. Nullam quis ex rhoncus nulla placerat aliquet. Nulla vulputate libero at lectus lacinia, et pharetra magna auctor. 
+        </p>
     </section>
 
     <nav role="navigation" id="navigation">
-        <ul>
+        <ul id='navigationul'>
             <li><a href=''>Home</a></li>
             <li><a href=''>About</a></li>
             <li><a href=''>Contact us</a></li>
@@ -159,35 +138,48 @@
     </nav>
     <script type="text/javascript">
         var nav = document.getElementById('navigation')
-        nav.classList.toggle('hidden')
+        var navul = document.getElementById('navigationul')
+        
+        // As HTML5 does not work in IE9 < and i didn't want to shim, i thought of this pattern
+        // (Also because it's fun to think about these kind of situations.)
+        var navGetsLoaded = nav.childNodes.length != 0 ? true : false 
         var burgerlink = document.getElementById('burgerlink')
-        burgerlink.href = '#'
+        var text = document.getElementById('text')
+        var hidden = 'hidden' // Name of class for hidden properties
+        var test = 'test' // name of displayed element
+        var supportsAddEventListener = (burgerlink.addEventListener !== undefined) 
+        var supportsClassList = (nav.classList !== undefined)
+       
+            
+        navGetsLoaded ? nav.parentNode.removeChild(nav) : navul.parentNode.removeChild(navul)
+        navGetsLoaded ? document.body.insertBefore(nav, text) : document.body.insertBefore(navul, text)
+        // 
+        
+        function toggleClass(element, newClass){
+            element.classname === newClass ? element.classname = '' : element.className = newClass
+        } 
+        
 
-        burgerlink.addEventListener("click", function() 
-        {
-            var nav = document.getElementById('navigation')
+        function burgerlinkEvent() {
             // Fallback for classlist 
             if(!nav.classList){
-                console.log('Browser doesnt have classlist')
-                if (nav.className === 'hidden') {
-                    nav.className = 'test';
-                }
-                else {
-                    nav.className = 'hidden'
-                }
-                 
+                nav.className === hidden ? nav.className = test : nav.className = hidden;
+            }else {
+                nav.classList.toggle(test);
+                nav.classList.toggle(hidden);
             }
-            nav.classList.toggle('test')
-            nav.classList.toggle('hidden')
             
             var height = nav.clientHeight
             var section = document.getElementById('text')
-            console.log(height)
             if(height > 60){section.style.margin = height + 'px 0 0 0'}
             else{section.style.margin = '2em 0 0 0'}
 
-        })
+        }
 
+        supportsClassList ? nav.classList.toggle('hidden') : toggleClass(nav, hidden)
+
+        supportsAddEventListener ? burgerlink.addEventListener("click", burgerlinkEvent) : burgerlink.onclick = burgerlinkEvent
+        
 
 
     </script>
