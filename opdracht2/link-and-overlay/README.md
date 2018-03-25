@@ -48,4 +48,4 @@ With javascript enabled, I feature check if the users browser supports fetch or 
 - [x] Doesn't work on IE11 due to dialog object
 - [x] Doesn't work on IE11 due to fatarrow ES6 syntax
 - [x] Code will throw errors in older IE versions due to catch being reserved 
-- [x] Krijn really hates that transition, so i guess i'll remove it (even though i secretly kinda like it)
+- [x] Krijn really hates that transition, so i guess i'll remove it (even though i secretly kinda like it) 
