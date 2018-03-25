@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
     <style>
     .fadedbackground {
@@ -33,7 +32,6 @@
         border: 4px solid #18717e;
         border-radius: 5px;
         transition: all 1s ease-in-out;
-        animation: 1s ease-out 0s 1 easein;
         vertical-align: middle;
         width: 100px;
         height: 100px;
@@ -48,60 +46,55 @@
         opacity: 0;
     }
 
-    @keyframes easein {
-        0%{
-            transform: translateX(-100%) translateY(-100%)
-        }
-
-        100%{
-            transform: translateX(0%)
-        }
-    }
 </style>
 </head>
 <body class='focus-background'>
     <a href='dialog.html' id='modallink'>Open de Modal</a>
-   
   
 <script type='text/javascript'>
-    var modal = document.createElement("dialog")
-    modal.setAttribute("open", "open")
-    modal.className = "fallbackmodal"
+    if (typeof HTMLDialogElement === 'function') {
 
-    var link = document.getElementById("modallink")
-    var setText = function(response){
-        modal.innerHTML = response
-        document.body.appendChild(modal)
-    }
-   
-    link.onclick = (event) => {
-        event.preventDefault()
-        modal.classList.toggle('fallbackmodal')
-        document.body.classList.toggle('focus-background')
-         if(typeof(fetch) === undefined) {
-            var req = new XMLHttpRequest()
-            req.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    setText(req.responseText)
-                }
-            };
-            req.open("GET", link.href , true);
-            req.send();
+        var modal = document.createElement("dialog")
+        modal.setAttribute("open", "open")
+        modal.className = "fallbackmodal"
+
+        var link = document.getElementById("modallink")
+
+        var setText = function(response){
+            modal.innerHTML = response
+            document.body.appendChild(modal)
         }
-        else{
-            fetch("./dialog.html")
-            .then((result) => {
-                return result.text()
-            }).then((result) => {
-                setText(result)
-                return result
-            }).catch((result) => {
-               
+    
+        link.onclick = function(event){
+            // Dont have to feature check this since all browsers that support dialog support classlist
+            modal.classList.toggle('fallbackmodal')
+            document.body.classList.toggle('focus-background')
+
+            if(typeof(fetch) === undefined) {
+                var req = new XMLHttpRequest()
+                req.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        setText(req.responseText)
+                    }
+                };
+                req.open("GET", link.href , true);
+                req.send();
+            }
+            else{
+                fetch("./dialog.html")
+                .then(function(result) {
+                    return result.text()
+                }).then(function(result) {
+                    setText(result)
+                    return result
+                })["catch"](function(result) {
                     window.location = link.href
-               
-            })
+                })
+            }
+
+            event.preventDefault()
+            
         }
-        
     }
 
      

@@ -42,3 +42,10 @@ The text has been centered and the background is dimmed. On older browsers the t
 ## Enjoyable
 With javascript enabled, I feature check if the users browser supports fetch or xmlhttprequest, and allows the fetching of local files (many don't). If this is the case, I present a modal with the content of dialog.html instead of opening the page as a whole. In the other cases the fallback will still be used. 
 ![image](img/enjoyable-firefox.PNG)
+
+
+## Feedback
+- [x] Doesn't work on IE11 due to dialog object
+- [x] Doesn't work on IE11 due to fatarrow ES6 syntax
+- [x] Code will throw errors in older IE versions due to catch being reserved 
+- [x] Krijn really hates that transition, so i guess i'll remove it (even though i secretly kinda like it)
