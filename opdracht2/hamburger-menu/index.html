@@ -17,7 +17,6 @@
             display:none;
         }
 
-
         section {
             margin-left: auto;
             margin-right: auto;
@@ -25,31 +24,28 @@
             max-width: 40em;
         }
 
-        nav {
-
-            width: 100%;
-        }
         ul {
-            width: 100%;
             margin: 0;
-            background-color: orange;
+            padding-left: 0;
+
         }
-        li {
+        a {
             background-color: orange;
             display: block;
             width: 100%;
-            border-bottom: 1px;
+     
             line-height: 25px; line-height: 1.5em;
             text-align: center;
             padding: 15px 0 15px 0;
-        }
-
-        li > a {
-            text-decoration: none;
             color: black;
+            text-decoration: none;
         }
 
-        li:hover {
+        li {
+            list-style-type: none;
+        }
+
+        a:hover {
             background-color: whitesmoke;
         }
 
@@ -67,22 +63,30 @@
 
         }
 
+         .mainnavigation {
+            zoom: 1;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            height: 0;
+        }
+
+
         @media (max-width: 600px) {
             #hamburgermenu {
                 background-color: orange;
                 width: 100%;
-
-                left: 0;
-                top: 0;
             }
-
-
-
-        
         }
         @media (min-width: 600px) {
             #hamburgermenu {
                 display: none;
+            }
+            
+            .mainnavigation {
+                zoom: 1;
+                filter: alpha(opacity=100);
+                opacity: 100;
+                height: auto;
             }
 
             ul {
@@ -129,8 +133,8 @@
         </p>
     </section>
 
-    <nav role="navigation" id="navigation">
-        <ul id='navigationul'>
+    <nav role="navigation" id="navigation" class="mainnavgiation">
+        <ul id='navigationul' class='mainnavgiation'>
             <li><a href=''>Home</a></li>
             <li><a href=''>About</a></li>
             <li><a href=''>Contact us</a></li>
@@ -145,8 +149,9 @@
         var navGetsLoaded = nav.childNodes.length != 0 ? true : false 
         var burgerlink = document.getElementById('burgerlink')
         var text = document.getElementById('text')
-        var hidden = 'hidden' // Name of class for hidden properties
-        var test = 'test' // name of displayed element
+        var navigationClass = 'mainnavigation'
+
+
         var supportsAddEventListener = (burgerlink.addEventListener !== undefined) 
         var supportsClassList = (nav.classList !== undefined)
        
@@ -156,28 +161,19 @@
         // 
         
         function toggleClass(element, newClass){
-            element.classname === newClass ? element.classname = '' : element.className = newClass
+            console.log(element)
+            console.log(element.clasNname)
+            element.className === newClass ? element.className = '' : element.className = newClass
         } 
         
 
-        function burgerlinkEvent() {
-            // Fallback for classlist 
-            if(!nav.classList){
-                nav.className === hidden ? nav.className = test : nav.className = hidden;
-            }else {
-                nav.classList.toggle(test);
-                nav.classList.toggle(hidden);
-            }
-            
-            var height = nav.clientHeight
-            var section = document.getElementById('text')
-            if(height > 60){section.style.margin = height + 'px 0 0 0'}
-            else{section.style.margin = '2em 0 0 0'}
-
+        function burgerlinkEvent(event) {
+            toggleClass(nav, navigationClass)
+            toggleClass(navul, navigationClass)
+            event.preventDefault()
         }
 
-        supportsClassList ? nav.classList.toggle('hidden') : toggleClass(nav, hidden)
-
+      
         supportsAddEventListener ? burgerlink.addEventListener("click", burgerlinkEvent) : burgerlink.onclick = burgerlinkEvent
         
 
