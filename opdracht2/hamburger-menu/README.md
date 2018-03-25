@@ -2,6 +2,8 @@
 
 [`link to demo`](https://cascuna.github.io/browser-technologies/opdracht2/hamburger-menu/)
 
+note: outdated docs, will updated once feedback about code is positive
+
 ## preface
 This assignment aims to recreate the hamburger principle using the progressive enhacement principle;
 * The baseline
@@ -52,3 +54,8 @@ The nav is also styled differently for small screens, putting the links undernea
 With javascript enabled, I use position: absolute to position the navbar beneath the hamburger menu on click, by swapping out element classes. I use the fairly new [classlist.toggle](https://caniuse.com/#feat=classlist) in combination with [.addeventlistener](https://caniuse.com/#feat=addeventlistener). In the case these aren't supported, the browser will fallback on the acceptable behaviour
 ![image](img/enjoyable.PNG)
 
+## Feedback
+[x] - I'm working against the flow of my own HTML allot, which causes bugs like the nav sliding over the content
+[x] - Text isn't semantic, no `<p>`'s
+[x] - Not using feauture detection everywhere which causes the JS to break on older browsers
+[x] - Style the A instead of the LI so koos won't lose his mind next review
