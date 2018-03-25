@@ -55,7 +55,7 @@ With javascript enabled, I use position: absolute to position the navbar beneath
 ![image](img/enjoyable.PNG)
 
 ## Feedback
-[x] - I'm working against the flow of my own HTML allot, which causes bugs like the nav sliding over the content
-[x] - Text isn't semantic, no `<p>`'s
-[x] - Not using feauture detection everywhere which causes the JS to break on older browsers
-[x] - Style the A instead of the LI so koos won't lose his mind next review
+- [x] I'm working against the flow of my own HTML allot, which causes bugs like the nav sliding over the content
+- [x] Text isn't semantic, no `<p>`'s
+- [x] Not using feauture detection everywhere which causes the JS to break on older browsers
+- [x] Style the A instead of the LI so koos won't lose his mind next review
