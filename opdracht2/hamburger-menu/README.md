@@ -19,10 +19,10 @@ For the browsers that have javascript enabled with fetch can get the most enjoya
 ## Baseline
 **Coverage: 100% of the browsers**   
 This is the core functionality of the assignment; when you click on the link, you will be taken to the navbar, which is at the bottom of the page in this scenario.
-Screenshots are from tests on `internet explorer 11`, using the emulator to simulate `internet explorer 5`. I'll be making the assumption that if it works on this, it will work on basically anything.
+Screenshots are from tests on `internet explorer 11`, using the emulator to emulate `internet explorer 5`. I'll be making the assumption that if it works on this, it will work on basically anything.
 
 ### Stage 1
-![image](/opdracht2/hamburger-menu/img/baseline.PNG)
+![image](img/baseline.PNG)
 
 ### Stage 2 (link has been clicked)
 ![image](img/baseline-hamburger.PNG)
@@ -51,11 +51,33 @@ The nav is also styled differently for small screens, putting the links undernea
 
 ## Enjoyable
 **Coverage: about 96%**
-With javascript enabled, I use position: absolute to position the navbar beneath the hamburger menu on click, by swapping out element classes. I use the fairly new [classlist.toggle](https://caniuse.com/#feat=classlist) in combination with [.addeventlistener](https://caniuse.com/#feat=addeventlistener). In the case these aren't supported, the browser will fallback on the acceptable behaviour
+For this i'm doing quite a bit of feature detection to ensure all browsers can handle the script.
+For example i'm using
+```javascript
+ var supportsAddEventListener = (burgerlink.addEventListener !== undefined)
+```
+To check if `addEventListener` is accepted, if not i'll use `element.onclick` as a supplement.
+Further a-more i've implemented that function toggleClass
+```javascript
+ function toggleClass(element, newClass){
+        console.log(element)
+        console.log(element.clasNname)
+        element.className === newClass ? element.className = '' : element.className = newClass
+    }
+```
+Which simulates the `classlist` function `toggle`, but works for any browser.   
+Last but not least i'm using 
+```javascript 
+ var navGetsLoaded = nav.childNodes.length != 0 ? true : false
+```
+as a way to detect if the nav is being filled (which implies this html 5 tag is supported). If it isn't, i'm using the UL 
+instead. This was chosen over using a div or something, because i want to deliver semantic HTML if the browser
+supports it :)
+
 ![image](img/enjoyable.PNG)
 
 ## Feedback
 - [x] I'm working against the flow of my own HTML allot, which causes bugs like the nav sliding over the content
 - [x] Text isn't semantic, no `<p>`'s
 - [x] Not using feauture detection everywhere which causes the JS to break on older browsers
-- [x] Style the A instead of the LI so koos won't lose his mind next review
+- [x] Style the A instead of the LI so stijn won't lose his mind next review
