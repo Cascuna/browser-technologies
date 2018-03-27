@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <style>
+    * {
+      scroll-behavior: smooth;
+    }
+    section header {
+        position: sticky;
+        top: 18px;
+        background-color: purple;
+        z-index: 5;
+        margin-bottom: 3px;
+    }
+
+    section header h3 {
+        padding: 8px;
+        color: whitesmoke;
+        margin: 0;
+    }
+    details {
+        margin: 0 32px 0 0 ;
+    }
+
+    summary img {
+        border-radius: 50%;
+        display: inline-block;
+        vertical-align: middle;
+        height: 48px; height: 3em;
+        width: 48px; height: 3em;
+        margin: 6px 0 6px 0;
+    }
+    summary {
+        display: block;
+        position: relative;
+        border: 1px solid red;
+        margin: 0 0 0.25em 0.25em; 
+        cursor: pointer; 
+        padding: 0 0 0 6px;
+
+        transition: 0.5s all ease-in;
+    }
+
+    summary:focus,
+    summary:hover {
+        border: 1px solid blue;
+        background-color: orange;
+    }
+
+    summary h4 {
+        display: inline-block;
+        padding: 0 0 0 8px;
+        margin: 0;
+    }
+
+    ul, ol {
+       list-style-type: none; 
+    }
+
+    nav {
+        position: sticky;
+        z-index: 6;
+        top: 0;
+        background-color: whitesmoke;
+    }
+
+    nav li {
+        display: inline-block;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1> Browser Technologies </h1>
+        <h2> Contactenlijst </h2> 
+    </header>
+    <nav>
+        <ul>
+        {% for char in chars %}
+            {% if char !== ',' %}
+                <li> <a href="#{{char}}">{{char}}</a> </li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+        
+    </nav>
+    <input type='text' id='searchbtn' onkeyup="keyUp()">
+    <ol>   
+        {% for char in chars %}
+            {% if char !== ',' %}   
+            <li>
+                <section id='{{ char }}'>
+                <header>
+                        <h3> {{ char }} </h3>
+                    </header>
+                    <ul>
+                    {% for user in users %}
+                    
+                    {% if user.name.first | first === char | lower %}
+                    <li class='persondetails'>
+                        <details>
+                                <summary>
+                                    <img src= {{ user.picture.thumbnail }} alt=''>
+                                    <h4> {{ user.name.first | title }} {{ user.name.last | title }} </h4>
+                                </summary>
+                                <ul>
+                                    <li>
+                                        <section>
+                                            <h3> Naam informatie </h3>
+                                            <ul>
+                                                <li>
+                                                    <h3>Voornaam</h3>
+                                                    <p>{{ user.name.first }}</p>
+                                                </li>
+                                                <li>
+                                                    <h3>Achternaam</h3>
+                                                    <p>{{ user.name.last }}</p>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </li>
+                                    <li>
+                                        
+                                    </li>
+                                </ul> 
+                        </details>
+                    </li>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+                </section>
+            </li>
+            {%endif%}
+        {% endfor %}
+    </ol>  
+    <script type="text/javascript"> 
+        var filter = document.getElementById("searchbtn");
+        var persondetails = document.getElementsByClassName("persondetails");
+        
+        function keyUp(){
+            filter.value.toUpperCase();
+            for (i = 0; i < persondetails.length; i++) {
+                if (persondetails[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    persondetails[i].style.display = "";
+                } else {
+                    persondetails[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
