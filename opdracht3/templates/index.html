@@ -6,14 +6,39 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <style>
+    .AlphabetNav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    
+        padding: .5rem;
+        background: ghostwhite;
+        }
+    .AlphabetNav a {
+        display: flex;
+        padding: .3em;
+        color: darkgray;
+    }
+
+
+    .AlphabetNav a:hover {
+    background: #ddd;
+    color: #444;
+    }
+
     * {
       scroll-behavior: smooth;
     }
     section header {
         position: sticky;
         top: 18px;
-        background-color: purple;
+        background-color: #FFCC00;
+        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.3);
         z-index: 5;
         margin-bottom: 3px;
     }
@@ -24,7 +49,11 @@
         margin: 0;
     }
     details {
-        margin: 0 32px 0 0 ;
+        margin: 0 32px 0 0;
+        
+    }
+    body {
+        font-family: 'Ubuntu', sans-serif;
     }
 
     summary img {
@@ -38,18 +67,23 @@
     summary {
         display: block;
         position: relative;
-        border: 1px solid red;
+        border: 1px solid rgb(220,220,220);
         margin: 0 0 0.25em 0.25em; 
         cursor: pointer; 
         padding: 0 0 0 6px;
 
-        transition: 0.5s all ease-in;
+        transition: 0.15s all ease-in;
     }
 
     summary:focus,
     summary:hover {
-        border: 1px solid blue;
-        background-color: orange;
+        border: 1px solid rgb(190,190,190);
+        transform: scale(1.015);
+
+    }
+    details[open] > summary {
+        border: 1px solid rgb(190,190,190);
+        transform: scale(1.015);
     }
 
     summary h4 {
@@ -62,6 +96,12 @@
        list-style-type: none; 
     }
 
+    a {
+        font-size: 1.2em;
+        line-height: 1;
+        font-weight: 500;
+        text-decoration: none;
+    }
     nav {
         position: sticky;
         z-index: 6;
@@ -72,6 +112,57 @@
     nav li {
         display: inline-block;
     }
+
+   
+    li div {
+        margin-bottom: 15px;
+    }
+    a {
+        position: relative;
+    }
+
+    .my-caret {
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        border-top: 5px black solid;
+        border-left: 5px black solid;
+        -webkit-transform: rotate(225deg);
+        -moz-transform: rotate(225deg);
+        -o-transform: rotate(225deg);
+        -ms-transform: rotate(225deg);
+        transform: rotate(225deg);
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        -ms-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        margin: 0 3px 6px 3px;
+    }
+
+    .my-caret:hover {
+        animation: scroll 0.5s infinite;
+    }
+    .my-caret.active {
+        -webkit-transform: rotate(225deg);
+        -moz-transform: rotate(225deg);
+        -o-transform: rotate(225deg);
+        -ms-transform: rotate(225deg);
+        transform: rotate(225deg);
+        margin: 0 3px 6px 3px;
+        }
+
+    @-webkit-keyframes scroll {
+    0% {
+        -webkit-transform: translateY(0) rotate(225deg);
+                transform: translateY(0) rotate(225deg);
+    }
+    100% {
+        -webkit-transform: translateY(10px) rotate(225deg);
+                transform: translateY(10px) rotate(225deg);
+    }
+    }
+
     </style>
 </head>
 <body>
@@ -79,12 +170,10 @@
         <h1> Browser Technologies </h1>
         <h2> Contactenlijst </h2> 
     </header>
-    <nav>
+    <nav class="AlphabetNav">
         <ul>
         {% for char in chars %}
-            {% if char !== ',' %}
                 <li> <a href="#{{char}}">{{char}}</a> </li>
-            {% endif %}
         {% endfor %}
         </ul>
         
@@ -92,7 +181,6 @@
     <input type='text' id='searchbtn' onkeyup="keyUp()">
     <ol>   
         {% for char in chars %}
-            {% if char !== ',' %}   
             <li>
                 <section id='{{ char }}'>
                 <header>
@@ -100,7 +188,6 @@
                     </header>
                     <ul>
                     {% for user in users %}
-                    
                     {% if user.name.first | first === char | lower %}
                     <li class='persondetails'>
                         <details>
@@ -108,26 +195,27 @@
                                     <img src= {{ user.picture.thumbnail }} alt=''>
                                     <h4> {{ user.name.first | title }} {{ user.name.last | title }} </h4>
                                 </summary>
-                                <ul>
+                                <ol>
                                     <li>
                                         <section>
-                                            <h3> Naam informatie </h3>
-                                            <ul>
-                                                <li>
-                                                    <h3>Voornaam</h3>
-                                                    <p>{{ user.name.first }}</p>
-                                                </li>
-                                                <li>
-                                                    <h3>Achternaam</h3>
-                                                    <p>{{ user.name.last }}</p>
-                                                </li>
-                                            </ul>
+                                            <h5> Naam informatie </h4>
+                                            <dl>
+                                                <dt>Voornaam</dt>
+                                                <dd>{{ user.name.first }}</dd>
+                                            </dl>
+                                            <dl>
+                                                <dt>Achternaam</dt>
+                                                <dd>{{ user.name.last }}</dd>
+                                            </dl>
                                         </section>
+                                        <div>
+                                              
+                                            <a href='/contact/{{user.name.first}}_{{user.name.last}}' onclick='getMoreUserInfo(event)'>Meer informatie
+                                                <div class="my-caret"></div>
+                                            </a>
+                                        </div>
                                     </li>
-                                    <li>
-                                        
-                                    </li>
-                                </ul> 
+                                </ol> 
                         </details>
                     </li>
                         {% endif %}
@@ -135,23 +223,47 @@
                     </ul>
                 </section>
             </li>
-            {%endif%}
         {% endfor %}
     </ol>  
     <script type="text/javascript"> 
         var filter = document.getElementById("searchbtn");
         var persondetails = document.getElementsByClassName("persondetails");
         
-        function keyUp(){
-            filter.value.toUpperCase();
-            for (i = 0; i < persondetails.length; i++) {
-                if (persondetails[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    persondetails[i].style.display = "";
-                } else {
-                    persondetails[i].style.display = "none";
-                }
-            }
+        function getMoreUserInfo(event){
+            // event.preventDefault();
+            event.preventDefault();
+
+            fetch(event.target.href).then((data) =>{
+                console.log()
+                var dummyDiv = document.createElement('div')
+                
+               data.text().then((text)=>{
+                dummyDiv.innerHTML = text
+                    for(section of dummyDiv.querySelectorAll('section')) {
+                        event.target.parentNode.parentNode.appendChild(section)
+                    }
+                //   return false;
+                })
+                console.log(dummyDiv)
+                // let docbod = doc.firstChild.firstChild
+                // console.log(docbod)
+
+                // console.log(event.parentNode.parentNode.appendChild())
+                // return false;
+            })
+            
         }
+
+        // function keyUp(){
+        //     filter.value.toUpperCase();
+        //     for (i = 0; i < persondetails.length; i++) {
+        //         if (persondetails[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+        //             persondetails[i].style.display = "";
+        //         } else {
+        //             persondetails[i].style.display = "none";
+        //         }
+        //     }
+        // }
     </script>
 </body>
 </html>
