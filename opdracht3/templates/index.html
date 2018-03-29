@@ -8,20 +8,22 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <style>
     .AlphabetNav {
-        position: fixed;
+        position: fixed; 
+        position: sticky;
         top: 0;
         right: 0;
         width: 100%;
         display: flex;
         justify-content: space-around;
-    
+        padding: 8px;
         padding: .5rem;
         background: ghostwhite;
         }
     .AlphabetNav a {
         display: flex;
+        padding: 5px;
         padding: .3em;
-        color: darkgray;
+        color: black;
     }
 
     ul {
@@ -43,6 +45,7 @@
     section header {
         position: sticky;
         top: 18px;
+        top: 1.2em;
         background-color: #FFCC00;
         box-shadow: 0 2px 14px rgba(0, 0, 0, 0.3);
         z-index: 5;
@@ -97,7 +100,9 @@
         padding: 0 0 0 8px;
         margin: 0;
     }
-
+    ol{
+        padding-left: 0;
+    }
     ul, ol {
        list-style-type: none; 
     }
@@ -126,20 +131,38 @@
     a {
         position: relative;
     }
-
-    .my-caret {
+    .my-caret{
+        pointer-events: none;
         cursor: pointer;
         width: 0; 
         height: 0; 
-        border-left: 4px solid transparent;
-        border-right: 4px solid transparent;
-        border-top: 4px solid red;
-        border: none;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        position: relative;
+   
+    }
+    .my-caret.open {
+      
+        border-top: 6px solid black;
+        top: 16px;
+      
     }
 
-    .my-caret:hover {
-        animation: scroll 0.5s infinite;
+    .my-caret.closed {
+        border-bottom: 6px solid black;
+        top: -11px;
     }
+
+    a:hover .my-caret.open, 
+    .my-caret.open:hover {
+        animation: uparrow 0.6s infinite alternate ease-in-out;
+    }
+
+     a:hover .my-caret.closed, 
+    .my-caret.closed:hover {
+        animation: downarrow 0.6s infinite alternate ease-in-out;
+    }
+
     .my-caret.active {
         -webkit-transform: rotate(225deg);
         -moz-transform: rotate(225deg);
@@ -149,17 +172,17 @@
         margin: 0 3px 6px 3px;
         }
 
-    @-webkit-keyframes scroll {
-    0% {
-        -webkit-transform: translateY(0) rotate(225deg);
-                transform: translateY(0) rotate(225deg);
-    }
-    100% {
-        -webkit-transform: translateY(10px) rotate(225deg);
-                transform: translateY(10px) rotate(225deg);
-    }
+    @keyframes uparrow {
+    0% { top:16px;}
+    100% { top:28px;}
     }
 
+      @keyframes downarrow {
+    0% { top:-11px;}
+    100% { top:-23px;}
+    }
+  
+  
     </style>
 </head>
 <body>
@@ -199,19 +222,15 @@
                                             <dl>
                                                 <dt>Voornaam</dt>
                                                 <dd>{{ user.name.first }}</dd>
-                                            </dl>
-                                            <dl>
                                                 <dt>Achternaam</dt>
                                                 <dd>{{ user.name.last }}</dd>
                                             </dl>
                                         </section>
                                         <div>
-                                              
                                             <a href='/contact/{{user.name.first}}_{{user.name.last}}' onclick='getMoreUserInfo(event)'>Meer informatie
-                                                <span class="my-caret"></span>
+                                                <span class="my-caret open"></span>
                                             </a>
-                                        </div>
-                                    </li>
+                                        </div></li>
                                 </ol> 
                         </details>
                     </li>
@@ -224,31 +243,33 @@
     </ol>  
     <script type="text/javascript"> 
         var filter = document.getElementById("searchbtn");
-        var persondetails = document.getElementsByClassName("persondetails");
+        document.querySelectorAll ? persondetails = document.querySelectorAll("persondetails") : ''
         
         function getMoreUserInfo(event){
-            // event.preventDefault();
-            event.preventDefault();
-
-            fetch(event.target.href).then((data) =>{
-                console.log()
-                var dummyDiv = document.createElement('div')
-                
-               data.text().then((text)=>{
-                dummyDiv.innerHTML = text
-                    for(section of dummyDiv.querySelectorAll('section')) {
-                        event.target.parentNode.parentNode.appendChild(section)
+            if (window.fetch) {
+                if(event.target.parentNode.nextSibling){
+                        if(event.target.parentNode.nextSibling.nodeName == 'SECTION'){
+                            while(event.target.parentNode.nextSibling){
+                                event.target.parentNode.parentNode.removeChild(event.target.parentNode.nextSibling)
+                            }
+                            event.target.innerHTML = 'Meer informatie  <span class="my-caret open"></span>'
+                        }
                     }
-                //   return false;
-                })
-                console.log(dummyDiv)
-                // let docbod = doc.firstChild.firstChild
-                // console.log(docbod)
-
-                // console.log(event.parentNode.parentNode.appendChild())
-                // return false;
-            })
-            
+                else{
+                    fetch(event.target.href).then(function(data) {
+                        var dummyDiv = document.createElement('div');
+                        data.text().then(function(text){
+                    
+                        dummyDiv.innerHTML = text;
+                        var sectionItems = dummyDiv.querySelectorAll('section');
+                            for(var i = 0; i < sectionItems.length; i++) {
+                                event.target.parentNode.parentNode.appendChild(sectionItems[i]);
+                            }
+                        event.target.innerHTML = 'Minder informatie  <span class="my-caret closed"></span>'
+                        })      
+                    })
+                }   event.preventDefault();
+            }  
         }
 
         // function keyUp(){
