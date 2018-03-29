@@ -44,8 +44,8 @@
     }
     section header {
         position: sticky;
-        top: 18px;
-        top: 1.2em;
+        top: 83.2px;
+        top: 5.2em;
         background-color: #FFCC00;
         box-shadow: 0 2px 14px rgba(0, 0, 0, 0.3);
         z-index: 5;
@@ -189,7 +189,11 @@
     <header>
         <h1> Browser Technologies </h1>
         <h2> Contactenlijst </h2> 
+        {% if response %}
+        <ins id='errormessage' class='errormessage'>{{response}}</ins>
+    {% endif %}
     </header>
+  
     <nav class="AlphabetNav">
         <ul>
         {% for char in chars %}
@@ -198,7 +202,11 @@
         </ul>
         
     </nav>
-    <input type='text' id='searchbtn' onkeyup="keyUp()">
+
+    <form action="/search" method="get" id='searchform'>
+        <input type='text' id='searchbtn' name='searchquery' onkeyup="searchForUser(event)">
+        <input type="submit" class=button value="zoek">
+    </form>
     <ol>   
         {% for char in chars %}
             <li>
@@ -214,6 +222,7 @@
                                 <summary>
                                     <img src= {{ user.picture.thumbnail }} alt=''>
                                     <h4> {{ user.name.first | title }} {{ user.name.last | title }} </h4>
+                                    <p>{{ user.phone }}</p>
                                 </summary>
                                 <ol>
                                     <li>
@@ -244,6 +253,8 @@
     <script type="text/javascript"> 
         var filter = document.getElementById("searchbtn");
         document.querySelectorAll ? persondetails = document.querySelectorAll("persondetails") : ''
+     
+        // console.log(persondetails)
         
         function getMoreUserInfo(event){
             if (window.fetch) {
@@ -255,7 +266,7 @@
                             event.target.innerHTML = 'Meer informatie  <span class="my-caret open"></span>'
                         }
                     }
-                else{
+                else {
                     fetch(event.target.href).then(function(data) {
                         var dummyDiv = document.createElement('div');
                         data.text().then(function(text){
@@ -268,20 +279,37 @@
                         event.target.innerHTML = 'Minder informatie  <span class="my-caret closed"></span>'
                         })      
                     })
-                }   event.preventDefault();
+                }   event.preventDefault ? event.preventDefault() :  (event.returnValue = false)
             }  
         }
 
-        // function keyUp(){
-        //     filter.value.toUpperCase();
-        //     for (i = 0; i < persondetails.length; i++) {
-        //         if (persondetails[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
-        //             persondetails[i].style.display = "";
-        //         } else {
-        //             persondetails[i].style.display = "none";
-        //         }
-        //     }
-        // }
+        function searchForUser(event){
+            if (window.fetch) {
+               
+                fetch('/search?searchquery=' + event.target.value).then(function(data) {
+                    var dummyDiv = document.createElement('div');
+                    data.text().then(function(text){
+                        
+                        dummyDiv.innerHTML = text
+     
+                        document.body.removeChild(document.body.getElementsByTagName('OL')[0])
+                        document.body.appendChild(dummyDiv.getElementsByTagName("OL")[0])
+                        if(document.getElementById('errormessage')){
+                            document.body.querySelector('header').removeChild(document.getElementById('errormessage'))
+                        }
+                        if(dummyDiv.getElementsByClassName('errormessage').length > 0){
+                           
+                            document.body.querySelector('header').appendChild(dummyDiv.getElementsByClassName('errormessage')[0])
+                        } 
+                    })      
+                })
+               event.preventDefault();
+            }
+
+
+        }
+
+      
     </script>
 </body>
 </html>

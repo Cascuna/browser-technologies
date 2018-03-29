@@ -9,6 +9,8 @@ console.log(users)
 const app = express()
 const fs = require('fs');
 
+
+
 // Configuring the nj path as /templates
 nunjucks.configure('templates', {
     autoescape: true,
@@ -35,22 +37,33 @@ var chars = [].concat.apply([], Array(26))
 
 
 chars = chars.split(',')
+let actualChars = []
 
-for(char of chars){
-    
+function reformatChars(users){
+    let responseArray = []
+    for(char of chars){
+        for(user of users){
+   
+            if(user.name.first.charAt(0).toUpperCase() == char){
+                responseArray += char
+                break 
+            }
+        }
+    }  
+    return responseArray
 }
 
+actualChars = reformatChars(users)
+
 app.get('/',function(request, response) {
-        response.render('index.html', {users: users,  chars: chars})
+        response.render('index.html', {users: users,  chars: actualChars})
 
     });
 
 app.get('/contact/:name', function(request, response) {
+    console.log(request.get('Referrer'))
     let testName = String(request.params.name)
-    console.log(typeof(testName))
     testName = testName.replace(/\s|_/g,'')
-
-    console.log(testName)
     let realUser = undefined
     for(user of users){
         console.log(String(user.name.first + user.name.last).replace(/\s/g,'') )
@@ -62,6 +75,28 @@ app.get('/contact/:name', function(request, response) {
     response.render('userdetail.html', {user:realUser} )
 })
     
+app.get('/search', function(request, response) {
+    let query = request.query.searchquery
+
+    let matchingUsers = []
+    let matchingChars = []
+    for(user of users){
+
+        if(user.name.first.toUpperCase().includes(query.toUpperCase()) ||
+        user.name.last.toUpperCase().includes(query.toUpperCase())) {
+
+            matchingUsers.push(user) 
+
+        } 
+    }
+    if(matchingUsers[0] === undefined ){
+        var searchResponse = 'Geen zoek resultaten gevonden op uw parameters'
+        matchingUsers = users
+        matchingChars = actualChars
+    }
+    else { matchingChars = reformatChars(matchingUsers) }
+    response.render('index.html', {users: matchingUsers,  chars: matchingChars, response: searchResponse})
+})
 
 
 
