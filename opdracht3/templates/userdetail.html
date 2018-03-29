@@ -1,0 +1,139 @@
+<style>
+      
+    * {
+      line-height: 24px;
+      line-height: 1.4em; 
+      box-sizing: border-box;
+    }
+    body, html {
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        position: relative;
+        top: 0px;
+        height: 150px;
+        background-color: #FFCC00;
+        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.3);
+        z-index: 5;
+        margin-bottom: 3px;
+    }
+
+    @media (min-width: 660px){
+        main {
+            justify-items: center;
+            grid-template-columns: 1fr 1fr;
+        }
+
+    }
+    main {
+       
+        min-width: 5px;
+        margin-top: 50px;
+        display: grid;
+        margin-left: 20px;
+       
+    }
+
+
+    section h5{
+        border-bottom: 1px solid black;
+    
+    }
+
+    header h1 {
+        position: absolute;
+        bottom: 50%;
+        padding-left: 20%;
+    }
+
+    header h2 {
+        position: absolute;
+        bottom: 30%;
+        padding-left: 20%;
+    }
+
+    header img {
+        position: absolute;
+        left: 0; 
+        right: 0; 
+        margin-left: auto; 
+        margin-right: auto; 
+        border-radius: 50%;
+        bottom: -64px;
+    }
+
+    
+    body {
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+    
+
+    </style>
+</style>
+<header>
+    <h1> {{ user.name.first }} {{user.name.last }} </h1>
+    <h2> {{ user.phone }} <h2></h2>
+    <img src= {{ user.picture.large }}>
+</header>
+<main>
+    <section>
+        <h5>Locatie gegevens</h5>
+        <dl>
+            <dt>Straat</dt>
+            <dd>{{ user.location.street }}</dd>
+            <dt>Stad</dt>
+            <dd>{{ user.location.city }} </dd>
+            <dt>Staat</dt>
+            <dd>{{ user.postcode }} </dd>
+        </dl>
+    </section>
+    <section>
+        <h5>Contact gegevens</h5>
+        <dl>
+            <dt>Email</dt>
+            <dd>{{ user.email }}</dd>
+            <dt>Telefoonnummer (mobiel) </dt>
+            <dd>{{ user.phone }}</dd>
+            
+        </dl>
+    </section>
+</main>
+
+
+<!-- "gender": "male",
+"name": {
+  "title": "mr",
+  "first": "anand",
+  "last": "de reus"
+},
+"location": {
+  "street": "1031 minrebroederstraat",
+  "city": "raalte",
+  "state": "friesland",
+  "postcode": 22284
+},
+"email": "anand.dereus@example.com",
+"login": {
+  "username": "brownrabbit931",
+  "password": "qwerty7",
+  "salt": "jUk1Ntx3",
+  "md5": "9c89d97e010371683c4c1f877177d0bf",
+  "sha1": "0c3783f92f6e33bef6cef74114387946c586a18b",
+  "sha256": "4d69a8f49635746e598f2ff43371525a9a5dfc5c7c87abafcc71bdcb9e11c909"
+},
+"dob": "1953-09-11 12:56:12",
+"registered": "2008-11-19 08:47:37",
+"phone": "(241)-580-8435",
+"cell": "(700)-715-5417",
+"id": {
+  "name": "BSN",
+  "value": "86414740"
+},
+"picture": {
+  "large": "https://randomuser.me/api/portraits/men/1.jpg",
+  "medium": "https://randomuser.me/api/portraits/med/men/1.jpg",
+  "thumbnail": "https://randomuser.me/api/portraits/thumb/men/1.jpg"
+},
+"nat": "NL" -->

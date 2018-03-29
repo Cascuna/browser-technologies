@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <style>
+    .AlphabetNav {
+        position: fixed; 
+        position: sticky;
+        top: 0;
+        right: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 8px;
+        padding: .5rem;
+        background: ghostwhite;
+        }
+    .AlphabetNav a {
+        display: flex;
+        padding: 5px;
+        padding: .3em;
+        color: black;
+    }
+
+    ul {
+        display: block;
+    }
+
+    li {
+        display: inline;
+    }
+
+    .AlphabetNav a:hover {
+    background: #ddd;
+    color: #444;
+    }
+
+    * {
+      scroll-behavior: smooth;
+    }
+    section header {
+        position: sticky;
+        top: 83.2px;
+        top: 5.2em;
+        background-color: #FFCC00;
+        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.3);
+        z-index: 5;
+        margin-bottom: 3px;
+    }
+
+    section header h3 {
+        padding: 8px;
+        color: whitesmoke;
+        margin: 0;
+    }
+    details {
+        margin: 0 32px 0 0;
+        
+    }
+    body {
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+    summary img {
+        border-radius: 50%;
+        display: inline-block;
+        vertical-align: middle;
+        height: 48px; height: 3em;
+        width: 48px; height: 3em;
+        margin: 6px 0 6px 0;
+    }
+    summary {
+        display: block;
+        position: relative;
+        border: 1px solid rgb(220,220,220);
+        margin: 0 0 0.25em 0.25em; 
+        cursor: pointer; 
+        padding: 0 0 0 6px;
+
+        transition: 0.15s all ease-in;
+    }
+
+    summary:focus,
+    summary:hover {
+        border: 1px solid rgb(190,190,190);
+        transform: scale(1.015);
+
+    }
+    details[open] > summary {
+        border: 1px solid rgb(190,190,190);
+        transform: scale(1.015);
+    }
+
+    summary h4 {
+        display: inline-block;
+        padding: 0 0 0 8px;
+        margin: 0;
+    }
+    ol{
+        padding-left: 0;
+    }
+    ul, ol {
+       list-style-type: none; 
+    }
+
+    a {
+        font-size: 1.2em;
+        line-height: 1;
+        font-weight: 500;
+        text-decoration: none;
+    }
+    nav {
+        position: sticky;
+        z-index: 6;
+        top: 0;
+        background-color: whitesmoke;
+    }
+
+    nav li {
+        display: inline-block;
+    }
+
+   
+    li div {
+        margin-bottom: 15px;
+    }
+    a {
+        position: relative;
+    }
+    .my-caret{
+        pointer-events: none;
+        cursor: pointer;
+        width: 0; 
+        height: 0; 
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        position: relative;
+   
+    }
+    .my-caret.open {
+      
+        border-top: 6px solid black;
+        top: 16px;
+      
+    }
+
+    .my-caret.closed {
+        border-bottom: 6px solid black;
+        top: -11px;
+    }
+
+    a:hover .my-caret.open, 
+    .my-caret.open:hover {
+        animation: uparrow 0.6s infinite alternate ease-in-out;
+    }
+
+     a:hover .my-caret.closed, 
+    .my-caret.closed:hover {
+        animation: downarrow 0.6s infinite alternate ease-in-out;
+    }
+
+    .my-caret.active {
+        -webkit-transform: rotate(225deg);
+        -moz-transform: rotate(225deg);
+        -o-transform: rotate(225deg);
+        -ms-transform: rotate(225deg);
+        transform: rotate(225deg);
+        margin: 0 3px 6px 3px;
+        }
+
+    @keyframes uparrow {
+    0% { top:16px;}
+    100% { top:28px;}
+    }
+
+      @keyframes downarrow {
+    0% { top:-11px;}
+    100% { top:-23px;}
+    }
+  
+  
+    </style>
+</head>
+<body>
+    <header>
+        <h1> Browser Technologies </h1>
+        <h2> Contactenlijst </h2> 
+        {% if response %}
+        <ins id='errormessage' class='errormessage'>{{response}}</ins>
+    {% endif %}
+    </header>
+  
+    <nav class="AlphabetNav">
+        <ul>
+        {% for char in chars %}
+                <li> <a href="#{{char}}">{{char}}</a> </li>
+        {% endfor %}
+        </ul>
+        
+    </nav>
+
+    <form action="/search" method="get" id='searchform'>
+        <input type='text' id='searchbtn' name='searchquery' onkeyup="searchForUser(event)">
+        <input type="submit" class=button value="zoek">
+    </form>
+    <ol>   
+        {% for char in chars %}
+            <li>
+                <section id='{{ char }}'>
+                <header>
+                        <h3> {{ char }} </h3>
+                    </header>
+                    <ul>
+                    {% for user in users %}
+                    {% if user.name.first | first === char | lower %}
+                    <li class='persondetails'>
+                        <details>
+                                <summary>
+                                    <img src= {{ user.picture.thumbnail }} alt=''>
+                                    <h4> {{ user.name.first | title }} {{ user.name.last | title }} </h4>
+                                    <p>{{ user.phone }}</p>
+                                </summary>
+                                <ol>
+                                    <li>
+                                        <section>
+                                            <h5> Naam informatie </h4>
+                                            <dl>
+                                                <dt>Voornaam</dt>
+                                                <dd>{{ user.name.first }}</dd>
+                                                <dt>Achternaam</dt>
+                                                <dd>{{ user.name.last }}</dd>
+                                            </dl>
+                                        </section>
+                                        <div>
+                                            <a href='/contact/{{user.name.first}}_{{user.name.last}}' onclick='getMoreUserInfo(event)'>Meer informatie
+                                                <span class="my-caret open"></span>
+                                            </a>
+                                        </div></li>
+                                </ol> 
+                        </details>
+                    </li>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+                </section>
+            </li>
+        {% endfor %}
+    </ol>  
+    <script type="text/javascript"> 
+        var filter = document.getElementById("searchbtn");
+        document.querySelectorAll ? persondetails = document.querySelectorAll("persondetails") : ''
+     
+        // console.log(persondetails)
+        
+        function getMoreUserInfo(event){
+            if (window.fetch) {
+                if(event.target.parentNode.nextSibling){
+                        if(event.target.parentNode.nextSibling.nodeName == 'SECTION'){
+                            while(event.target.parentNode.nextSibling){
+                                event.target.parentNode.parentNode.removeChild(event.target.parentNode.nextSibling)
+                            }
+                            event.target.innerHTML = 'Meer informatie  <span class="my-caret open"></span>'
+                        }
+                    }
+                else {
+                    fetch(event.target.href).then(function(data) {
+                        var dummyDiv = document.createElement('div');
+                        data.text().then(function(text){
+                    
+                        dummyDiv.innerHTML = text;
+                        var sectionItems = dummyDiv.querySelectorAll('section');
+                            for(var i = 0; i < sectionItems.length; i++) {
+                                event.target.parentNode.parentNode.appendChild(sectionItems[i]);
+                            }
+                        event.target.innerHTML = 'Minder informatie  <span class="my-caret closed"></span>'
+                        })      
+                    })
+                }   event.preventDefault ? event.preventDefault() :  (event.returnValue = false)
+            }  
+        }
+
+        function searchForUser(event){
+            if (window.fetch) {
+               
+                fetch('/search?searchquery=' + event.target.value).then(function(data) {
+                    var dummyDiv = document.createElement('div');
+                    data.text().then(function(text){
+                        
+                        dummyDiv.innerHTML = text
+     
+                        document.body.removeChild(document.body.getElementsByTagName('OL')[0])
+                        document.body.appendChild(dummyDiv.getElementsByTagName("OL")[0])
+                        if(document.getElementById('errormessage')){
+                            document.body.querySelector('header').removeChild(document.getElementById('errormessage'))
+                        }
+                        if(dummyDiv.getElementsByClassName('errormessage').length > 0){
+                           
+                            document.body.querySelector('header').appendChild(dummyDiv.getElementsByClassName('errormessage')[0])
+                        } 
+                    })      
+                })
+               event.preventDefault();
+            }
+
+
+        }
+
+      
+    </script>
+</body>
+</html>
