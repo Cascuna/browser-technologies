@@ -40,8 +40,9 @@
     }
 
     * {
-      scroll-behavior: smooth;
+      box-sizing: border-box;
     }
+
     section header {
         position: sticky;
         top: 83.2px;
@@ -54,7 +55,7 @@
 
     section header h3 {
         padding: 8px;
-        color: whitesmoke;
+        color: black;
         margin: 0;
     }
     details {
@@ -64,7 +65,9 @@
     body {
         font-family: 'Ubuntu', sans-serif;
     }
-
+    html {
+        scroll-behavior: smooth;
+    }
     summary img {
         border-radius: 50%;
         display: inline-block;
@@ -172,6 +175,22 @@
         margin: 0 3px 6px 3px;
         }
 
+    .page-header{
+        padding-left: 2.5rem;
+    }
+
+    #searchform {
+        padding-left: 2.5rem;
+        padding-top: .7rem;
+    }
+
+    .button, #searchbtn {
+        border: 1px solid #BEBEBE;
+        padding: 7px;
+        outline: none;
+        margin: 0px;
+    }
+
     @keyframes uparrow {
     0% { top:16px;}
     100% { top:28px;}
@@ -186,7 +205,7 @@
     </style>
 </head>
 <body>
-    <header>
+    <header class='page-header'>
         <h1> Browser Technologies </h1>
         <h2> Contactenlijst </h2> 
         {% if response %}
@@ -204,6 +223,7 @@
     </nav>
 
     <form action="/search" method="get" id='searchform'>
+        <label for='searchquery'> Zoek op naam </label>
         <input type='text' id='searchbtn' name='searchquery' onkeyup="searchForUser(event)">
         <input type="submit" class=button value="zoek">
     </form>
