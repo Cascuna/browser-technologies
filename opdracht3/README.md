@@ -1,6 +1,6 @@
 
 # Browser Technologies
- Link: https://opdracht3-bnrhkbhyow.now.sh/
+ Link: https://opdracht3-qnzhykftfu.now.sh/
 
 Deze uitwerking is voor de opdracht: 
 ```
