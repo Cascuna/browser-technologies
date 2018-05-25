@@ -8,7 +8,7 @@ Ik wil in een lijst contacten kunnen filteren, en details kunnen bekijken
 ```
 
 ## Table of contents
-- [Browser Technologies](#browser-technologies)
+- [Browser Technologies](#browser-technologies)https://opdracht3-iwxwvqeunv.now.sh/
     - [Table of contents](#table-of-contents)
     - [Feedback](#feedback)
     - [Gebruikte api's](#gebruikte-apis)
@@ -35,7 +35,7 @@ De contacten zijn opgehaald via: https://randomuser.me/
 ## Kleurenstudie
 Als kleuren palette heb ik voor wat vriendelijkere, maar vleurige kleuren gekozen. 
 Voor de kleuren heb ik een kleur studie gedaan:
-> Letter header kleur paar
+> Letter header klhttps://opdracht3-iwxwvqeunv.now.sh/eur paar
 ![](images/contrast-rood-zwart.png)  
 Omdat de kleuren combinatie AA is, heb ik voor een grotere font-size gekozen, zodat het alsnog goed te lezen is.
 
