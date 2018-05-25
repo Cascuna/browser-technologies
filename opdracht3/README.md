@@ -1,6 +1,6 @@
 
 # Browser Technologies
- Link: https://opdracht3-iwxwvqeunv.now.sh/
+ Link: https://opdracht3-bnrhkbhyow.now.sh/
 
 Deze uitwerking is voor de opdracht: 
 ```
@@ -49,7 +49,7 @@ De kern van de applicatie is dat de gebruiker door een (mogelijk dynamische) lij
 
 
 ### Extra functionaliteiten & voor welke browsers is dit
-Op het moment dat `fetch` ondersteund wordt in de browser, worden de filter resultaten & contactpagina op de pagina zelf gerenderd, om een "one-page" applicatie gevoel te creeren.
+Op het moment dat `fetch` ondersteund wordt in de browser, worden de zoek resultaten & contactpagina op de pagina zelf gerenderd, om een "one-page" applicatie gevoel te creeren.
 ![can-i-use-fetch](images/can-i-use-fetch.png)
 > Ondersteuning voor fetch 
 

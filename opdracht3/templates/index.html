@@ -253,10 +253,38 @@
     100% { top:-23px;}
     }
   
+    a.skip-main {
+    left:-999px;
+    position:absolute;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    z-index:-999;
+}
+a.skip-main:focus, a.skip-main:active {
+    color: #fff;
+    background-color:#FF3B3F;
+    left: auto;
+    top: auto;
+    width: 30%;
+    height: auto;
+    overflow:auto;
+    margin: 10px 35%;
+    padding:5px;
+    border-radius: 15px;
+
+    text-align:center;
+    font-size:1.2em;
+    z-index:999;
+}
+
   
     </style>
 </head>
 <body>
+                
+<a class="skip-main" href="#contact-list">Skip naar de contactenlijst</a>
     <header class='page-header'>
         <h1> Browser Technologies </h1>
         <h2> Contactenlijst </h2> 
@@ -279,7 +307,7 @@
         <input type='text' id='searchbtn' name='searchquery' onkeyup="searchForUser(event)">
         <input type="submit" class=button value="zoek">
     </form>
-    <ol>   
+    <ol id='contact-list'>   
         {% for char in chars %}
             <li>
                 <section id='{{ char }}'>
