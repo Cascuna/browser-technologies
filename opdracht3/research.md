@@ -6,11 +6,11 @@ Ik wil in een lijst contacten kunnen filteren, en details kunnen bekijken
 ```
 
 ## Wensen van de klant
-- [x] Gebruik de Pattern Primer van de Voorhoede om de use case te ontwerpen. (bepaal de core functionaliteit, acceptable en de enjoyable laag)
+- [] Gebruik de Pattern Primer van de Voorhoede om de use case te ontwerpen. (bepaal de core functionaliteit, acceptable en de enjoyable laag)
 - [] Een beschrijving van de core functionality
 - [] Een beschrijving van de Features en welke browsers deze features ondersteunen
 - [] Een beschrijving van de accessibility features die zijn onderzocht
-- [] De demo is opgebouwd uit drie lagen, volgens het principe van progressive enhancement
+- [x] De demo is opgebouwd uit drie lagen, volgens het principe van progressive enhancement
 - [] De user experience van de demo is pleasureable
     - [] De leesbaarheidsregels zijn toegepast, contrast en kleuren kloppen
     - [] Het heeft een pleasureable interface met gebruikmaking van affordance en feedback op de interactieve elementen

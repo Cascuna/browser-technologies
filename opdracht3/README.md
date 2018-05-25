@@ -1,19 +1,47 @@
+
 # Browser Technologies
+ Link: https://opdracht3-iwxwvqeunv.now.sh/
+
 Deze uitwerking is voor de opdracht: 
 ```
 Ik wil in een lijst contacten kunnen filteren, en details kunnen bekijken
 ```
+
+## Table of contents
+- [Browser Technologies](#browser-technologies)
+    - [Table of contents](#table-of-contents)
+    - [Feedback](#feedback)
+    - [Gebruikte api's](#gebruikte-apis)
+    - [Installatie](#installatie)
+    - [Kleurenstudie](#kleurenstudie)
+    - [Functionaliteiten](#functionaliteiten)
+        - [Kern functionaliteit](#kern-functionaliteit)
+        - [Extra functionaliteiten & voor welke browsers is dit](#extra-functionaliteiten-voor-welke-browsers-is-dit)
+    - [Baseline](#baseline)
+    - [Acceptable](#acceptable)
+    - [Pleasureable](#pleasureable)
+
+## Feedback
+* op alle elementen scroll-behavior: smooth
 
 ## Gebruikte api's
 De contacten zijn opgehaald via: https://randomuser.me/  
 
 ## Installatie
 1. `npm install`
-2. `node app.js` 
+2. `npm start` 
+
+## Kleurenstudie
+Als kleuren palette heb ik voor wat vriendelijkere, maar vleurige kleuren gekozen. 
+Voor de kleuren heb ik een kleur studie gedaan:
+> Header kleur
+![](images/contrast-rood-zwart.png)  
+Omdat de kleuren combinatie AA is, heb ik voor een grotere font-size gekozen.
+![](images/contrast-blauw-zwart.png)  
 
 ## Functionaliteiten
 ### Kern functionaliteit
-De kern van de applicatie is dat de gebruiker door een statische lijst van contacten kan kijken,en vervolgens meer details over de gebruiker kan zien op een afzonderlijke contact pagina. Ook het filteren zie ik hier als een kern functionaliteit, omdat het een belangerijk onderdeel is van een contactenboek. 
+De kern van de applicatie is dat de gebruiker door een (mogelijk dynamische) lijst van contacten kan kijken, en vervolgens meer details over de gebruiker kan zien op een afzonderlijke contact pagina. Ook het filteren zie ik hier als een kern functionaliteit, omdat het een belangerijk onderdeel is van een contactenboek. 
 
 
 ### Extra functionaliteiten & voor welke browsers is dit
@@ -36,7 +64,7 @@ Ook de contact pagina werkt goed genoeg voor IE7, waardoor de eenvoudig data van
 
 
 ## Acceptable
-![acceptable](images/test.png)
+![acceptable](images/acceptable.png)
 In browsers zoals chrome/firefox wordt details ondersteund
 ![acceptable](images/acceptable-ie-homepage.png)
 Getest in ie11  

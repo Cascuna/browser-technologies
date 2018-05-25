@@ -6,9 +6,11 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
     <style>
     .AlphabetNav {
-        position: fixed; 
+        position: fixed;
         position: sticky;
         top: 0;
         right: 0;
@@ -16,8 +18,8 @@
         display: flex;
         justify-content: space-around;
         padding: 8px;
-        padding: .5rem;
-        background: ghostwhite;
+        padding: 0.5rem;
+        background: #CAEBF2;
         }
     .AlphabetNav a {
         display: flex;
@@ -34,6 +36,10 @@
         display: inline;
     }
 
+    h4 {
+        font-family: 'Montserrat', sans-serif;
+    }
+
     .AlphabetNav a:hover {
     background: #ddd;
     color: #444;
@@ -45,30 +51,61 @@
 
     section header {
         position: sticky;
-        top: 83.2px;
-        top: 5.2em;
-        background-color: #FFCC00;
+        top: 8em;
+        background-color: #FF3B3F;
         box-shadow: 0 2px 14px rgba(0, 0, 0, 0.3);
         z-index: 5;
-        
         margin-bottom: 3px;
     }
 
     section header h3 {
         padding: 8px;
-        color: #000CFF;
+        padding-left: 37px;
+        font-weight: bold;
+        font-size: 2.2em;
+        color: #000004;
         margin: 0;
     }
+
+    section h5 {
+        font-size: 23px;
+        font-size: 1.3em;
+        margin-bottom: 18px;
+    }
+
     details {
         margin: 15px 32px 0 0;
         
     }
     body {
-        font-family: 'Ubuntu', sans-serif;
+        margin: 0;
+        background-color: #FFFFFF;
+        font-family: 'Montserrat', sans-serif;
     }
     html {
         scroll-behavior: smooth;
     }
+
+    dl {
+        padding: 0.5em;
+      }
+      dt {
+        float: left;
+        clear: left;
+        width: 100px;
+        text-align: right;
+        font-weight: bold;
+
+      }
+      dt::after {
+        content: ":";
+      }
+      dd {
+        margin: 0 0 0 110px;
+        padding: 0 0 0.5em 0;
+      }
+
+
     summary img {
         border-radius: 50%;
         display: inline-block;
@@ -80,11 +117,11 @@
     summary {
         display: block;
         position: relative;
-        border: 1px solid rgb(220,220,220);
-        margin: 0 0 0.25em 0.25em; 
-        cursor: pointer; 
-        padding: 0 0 0 6px;
-
+        border-bottom: 2px solid rgb(220,220,220);
+        box-shadow: 0 1px 0px rgb(220,220,220);
+        margin: 0 0 0.25em 0.25em;
+        cursor: pointer;
+        padding: 0 0 0 .5em;
         transition: 0.15s all ease-in;
     }
 
@@ -101,8 +138,10 @@
 
     summary h4 {
         display: inline-block;
-        padding: 0 0 0 8px;
+        padding: 0 0 0 12px;
         margin: 0;
+        font-size: 1.5em;
+       
     }
     ol{
         padding-left: 0;
@@ -130,12 +169,18 @@
 
    
     li div {
-        margin-bottom: 15px;
+        margin-bottom: 22px;
         margin-top: 5px;
     }
     a {
         position: relative;
+        color: black;
+        font-weight: bold;
     }
+    p {
+        padding-left: 5.3em;
+    }
+
     .my-caret{
         pointer-events: none;
         cursor: pointer;
@@ -182,8 +227,13 @@
     }
 
     #searchform {
+        background-color: #CAEBF2;
+        z-index: 6;
+        position: sticky;
+        top: 77px;
         padding-left: 2.5rem;
         padding-top: .7rem;
+        padding-bottom: .7rem;
     }
 
     .button, #searchbtn {
